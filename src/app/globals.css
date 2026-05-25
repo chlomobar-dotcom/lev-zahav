@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink antialiased;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-ink;
+  }
+
+  /* Focus visible accessible et discret */
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-cream rounded-sm;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  /* Boutons réutilisables */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
+           text-sm font-semibold tracking-wide transition-all duration-300
+           focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-ink shadow-gold hover:bg-gold-dark hover:text-cream
+           hover:-translate-y-0.5;
+  }
+
+  .btn-bordeaux {
+    @apply btn bg-bordeaux text-cream hover:bg-bordeaux-dark hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink/20 bg-transparent text-ink hover:border-ink/40
+           hover:bg-ink/5;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-cream/40 bg-white/5 text-cream backdrop-blur-sm
+           hover:bg-white/15;
+  }
+
+  /* Étiquette de section (eyebrow) */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase
+           tracking-[0.25em] text-gold-dark;
+  }
+
+  /* Slogan élégant */
+  .slogan {
+    @apply font-script italic tracking-[0.18em] text-gold-dark;
+  }
+
+  /* Filet décoratif doré */
+  .gold-rule {
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Dégradé de placeholder élégant (beige -> doré) */
+  .placeholder-grad {
+    background-image: linear-gradient(135deg, #F0E7D6 0%, #E4D6BC 45%, #D9BE7E 100%);
+  }
+}
+
+/* Respecte la préférence "réduire les animations" pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,48 @@
+==============================================================
+  OÙ PLACER VOS PHOTOS — LEV ZAHAV
+==============================================================
+
+Déposez ici vos images, puis renseignez leur chemin dans :
+   src/data/content.js
+
+Le site affiche un joli placeholder doré tant qu'une image est
+absente : vous pouvez donc lancer le site immédiatement, et
+ajouter vos vraies photos progressivement.
+
+--------------------------------------------------------------
+IMAGES ATTENDUES (noms suggérés, modifiables dans content.js)
+--------------------------------------------------------------
+
+/images/hero.jpg            -> grande image de la page d'accueil
+/images/mission.jpg         -> section "Notre mission"
+/images/histoire.jpg        -> page "Notre histoire"
+/images/slogan.jpg          -> section artistique (slogan au centre)
+/images/logo.svg            -> votre logo (optionnel, voir Logo.jsx)
+
+Galerie (page "10 ans en images") :
+/images/galerie/2015.jpg
+/images/galerie/2016.jpg
+   ... jusqu'à ...
+/images/galerie/2025.jpg
+
+Coulisses (préparation des colis) :
+/images/coulisses/1.jpg
+/images/coulisses/2.jpg
+/images/coulisses/3.jpg
+/images/coulisses/4.jpg
+
+Partenaires (logos, optionnel) :
+/images/partenaires/partenaire1.png
+   ... etc.
+
+--------------------------------------------------------------
+CONSEILS
+--------------------------------------------------------------
+- Format recommandé : .jpg ou .webp (plus léger).
+- Hero / slogan : grand format paysage (≥ 1600 px de large).
+- Galerie : format ~ 4:3, environ 1200 px de large.
+- Compressez vos images (https://squoosh.app) pour un site rapide.
+
+Les ALBUMS et VIDÉOS (Google Photos, Drive, YouTube, Vimeo)
+ne se déposent PAS ici : collez simplement les LIENS dans
+content.js (champs "photos" et "video" de chaque année).
