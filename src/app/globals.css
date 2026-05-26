@@ -72,6 +72,53 @@
   .gold-rule {
     @apply h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent;
   }
+
+  /* Logo : apparition douce + halo doré au survol + léger battement continu */
+  .logo-mark {
+    animation: logo-reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .logo-mark::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(199, 162, 75, 0.35) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .group:hover .logo-mark::before {
+    opacity: 1;
+  }
+  .logo-mark img {
+    animation: logo-heartbeat 3.2s ease-in-out 1.4s infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-6deg);
+    filter: drop-shadow(0 0 0 rgba(199, 162, 75, 0));
+  }
+  60% {
+    filter: drop-shadow(0 6px 14px rgba(199, 162, 75, 0.35));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 2px 6px rgba(199, 162, 75, 0.18));
+  }
+}
+
+@keyframes logo-heartbeat {
+  0%, 100% { transform: scale(1); }
+  8%       { transform: scale(1.07); }
+  16%      { transform: scale(1); }
+  24%      { transform: scale(1.04); }
+  32%      { transform: scale(1); }
 }
 
 @layer utilities {
