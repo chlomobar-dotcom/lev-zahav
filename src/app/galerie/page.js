@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import GalleryYears from "@/components/GalleryYears";
+import RecentDistributions from "@/components/RecentDistributions";
 import CTADonation from "@/components/CTADonation";
 import { Info } from "lucide-react";
 
@@ -19,6 +20,7 @@ export default function GaleriePage() {
       />
 
       <section className="container-wide py-16 sm:py-20">
+        <RecentDistributions />
         <GalleryYears />
 
         {/* Note d'aide à la personnalisation (visible discrètement) */}

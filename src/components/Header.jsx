@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, Lock } from "lucide-react";
 import Logo from "./Logo";
 import { navLinks } from "@/data/content";
 
@@ -64,6 +64,14 @@ export default function Header() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <Link
+            href="/admin"
+            className="hidden items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink/70 transition hover:border-ink/30 hover:text-ink md:inline-flex"
+            title="Espace administrateur"
+          >
+            <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+            Espace administrateur
+          </Link>
           <Link href="/faire-un-don" className="btn-gold hidden sm:inline-flex">
             <Heart className="h-4 w-4" aria-hidden="true" />
             Faire un don
@@ -116,6 +124,15 @@ export default function Header() {
             <Link href="/faire-un-don" className="btn-gold w-full">
               <Heart className="h-4 w-4" aria-hidden="true" />
               Faire un don
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/admin"
+              className="flex items-center justify-center gap-1.5 rounded-xl border border-ink/15 px-4 py-2.5 text-xs font-medium text-ink/70 hover:bg-sand/30"
+            >
+              <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+              Espace administrateur
             </Link>
           </li>
         </ul>

@@ -1,8 +1,7 @@
 import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import AuthProvider from "@/components/SessionProvider";
+import PublicChrome from "@/components/PublicChrome";
 import { site } from "@/data/content";
 
 const inter = Inter({
@@ -89,18 +88,15 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${playfair.variable} ${cormorant.variable}`}
     >
       <body className="flex min-h-screen flex-col font-sans">
-        <a
-          href="#contenu"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:text-cream"
-        >
-          Aller au contenu principal
-        </a>
-        <Header />
-        <main id="contenu" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
+        <AuthProvider>
+          <a
+            href="#contenu"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:text-cream"
+          >
+            Aller au contenu principal
+          </a>
+          <PublicChrome>{children}</PublicChrome>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -157,4 +157,55 @@ Avant la mise en ligne : renseignez `site.url` avec votre vraie adresse dans
 
 ---
 
+## 🔐 Espace administrateur
+
+Un espace privé (`/admin`) permet à une personne dédiée d'**ajouter chaque
+mois les photos** des distributions. Elles apparaissent automatiquement dans
+la galerie publique du site.
+
+### 1. Activer Vercel Blob (stockage des photos)
+
+Dans votre projet Vercel :
+1. Onglet **Storage** → **Create Database** → **Blob**
+2. Donnez-lui un nom (ex. `photos-galerie`) → **Create**
+3. La variable `BLOB_READ_WRITE_TOKEN` est ajoutée automatiquement à
+   votre projet.
+
+### 2. Configurer les variables d'environnement
+
+Dans Vercel → **Settings** → **Environment Variables**, ajoutez :
+
+| Variable | Valeur |
+|---|---|
+| `ADMIN_USERNAME` | nom d'utilisateur de connexion (ex. `admin`) |
+| `ADMIN_PASSWORD_HASH` | empreinte bcrypt du mot de passe (voir étape 3) |
+| `NEXTAUTH_SECRET` | chaîne aléatoire — générez avec `openssl rand -base64 32` |
+| `NEXTAUTH_URL` | URL publique du site (ex. `https://levzahav.fr`) |
+
+### 3. Générer le hash du mot de passe
+
+En local, exécutez :
+
+```bash
+npm install
+npm run hash-password "VotreMotDePasseFort"
+```
+
+Copiez la valeur affichée dans la variable `ADMIN_PASSWORD_HASH` de Vercel.
+
+> 💡 Pour changer le mot de passe plus tard, regénérez un hash et mettez à
+> jour la variable dans Vercel — un redéploiement automatique se déclenche.
+
+### 4. Utiliser l'espace admin
+
+- Bouton **« Espace administrateur »** en haut à droite du site
+- Connectez-vous avec l'identifiant et le mot de passe configurés
+- Choisissez l'**année + le mois** puis sélectionnez les photos à uploader
+- Les photos uploadées apparaissent immédiatement dans la galerie publique,
+  sous la section *« Distributions récentes »*
+
+Limite : 10 Mo max par photo, plusieurs photos d'un coup possibles.
+
+---
+
 *ENSEMBLE NOUS SOMMES LA VIE.*
