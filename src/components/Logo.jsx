@@ -17,12 +17,12 @@ export default function Logo({ light = false, withSlogan = true }) {
     >
       <span className="logo-mark relative inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-visible">
         <Image
-          src="/images/logo.svg"
+          src="/images/logo.png"
           alt=""
-          width={48}
-          height={48}
+          width={96}
+          height={96}
           priority
-          className="h-12 w-12 object-contain transition-transform duration-500 group-hover:scale-105"
+          className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </span>
       <span className="flex flex-col leading-none">
