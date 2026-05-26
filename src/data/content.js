@@ -30,30 +30,27 @@ export const site = {
   // Adresse réelle du site (utilisée pour le SEO : sitemap, balises Open Graph)
   url: "https://levzahav.fr",
 
-  // REMPLACER par vos coordonnées réelles
-  email: "contact@levzahav.fr",
-  phone: "+33 1 23 45 67 89",
-  phoneDisplay: "01 23 45 67 89",
-  address: "12 rue de la Solidarité, 75000 Paris, France",
+  email: "levzahav770@gmail.com",
+  phone: "+33 7 54 46 66 26",
+  phoneDisplay: "07 54 46 66 26",
+  address: "112 avenue de Paris, 94300 Vincennes, France",
 
   // Numéro WhatsApp au format international SANS le « + » ni espaces
-  // Exemple France : 33612345678  (REMPLACER)
-  whatsapp: "33612345678",
+  whatsapp: "33754466626",
   whatsappMessage:
     "Bonjour LEV ZAHAV, je vous contacte depuis votre site internet.",
 
-  // REMPLACER par le n° RNA / SIRET si vous souhaitez l'afficher
   legalName: "Association LEV ZAHAV (loi 1901)",
-  rna: "W000000000",
+  rna: "W942006058",
 };
 
 // -----------------------------------------------------------------------------
 // RÉSEAUX SOCIAUX (REMPLACER par vos liens — laissez "" pour masquer une icône)
 // -----------------------------------------------------------------------------
 export const socials = {
-  facebook: "https://facebook.com/",
-  instagram: "https://instagram.com/",
-  youtube: "https://youtube.com/",
+  facebook: "https://facebook.com/levzahav",
+  instagram: "https://instagram.com/levzahav",
+  youtube: "",
   linkedin: "",
   whatsapp: `https://wa.me/${site.whatsapp}`,
 };
@@ -64,10 +61,10 @@ export const socials = {
 //   Ce lien est utilisé par TOUS les boutons « Faire un don » du site.
 // -----------------------------------------------------------------------------
 export const donation = {
-  url: "https://www.helloasso.com/", // REMPLACER
+  url: "https://www.allodons.fr/levzahav",
   ribLabel: "Don par virement (RIB)",
-  iban: "FR76 0000 0000 0000 0000 0000 000", // REMPLACER
-  bic: "XXXXXXXX", // REMPLACER
+  iban: "FR76 3008 7338 5400 0213 1240 180",
+  bic: "CMCIFRPP",
   taxNote:
     "Votre don ouvre droit à une réduction d’impôt de 66 % (ou 75 % dans le cadre du dispositif Coluche, dans la limite légale). Un reçu fiscal vous est envoyé automatiquement.",
 };
