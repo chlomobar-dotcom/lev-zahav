@@ -48,7 +48,7 @@ export const site = {
 // RÉSEAUX SOCIAUX (REMPLACER par vos liens — laissez "" pour masquer une icône)
 // -----------------------------------------------------------------------------
 export const socials = {
-  facebook: "https://facebook.com/levzahav",
+  facebook: "",
   instagram: "https://instagram.com/levzahav",
   youtube: "",
   linkedin: "",
