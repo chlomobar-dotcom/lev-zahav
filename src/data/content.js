@@ -25,35 +25,33 @@ export const site = {
   slogan: "ENSEMBLE NOUS SOMMES LA VIE", // Slogan officiel, affiché partout
   meaning: "« LEV ZAHAV » signifie « cœur d’or ».",
   description:
-    "Depuis 10 ans, l’association LEV ZAHAV distribue chaque mois des colis alimentaires à des familles en difficulté. Bien plus que des colis : de la dignité, du soutien et du cœur.",
+    "Depuis 10 ans, l'association LEV ZAHAV — 100% bénévole — distribue chaque mois des colis alimentaires à des familles en difficulté. Bien plus que des colis : de la dignité, du soutien et du cœur.",
 
   // Adresse réelle du site (utilisée pour le SEO : sitemap, balises Open Graph)
   url: "https://levzahav.fr",
 
-  // REMPLACER par vos coordonnées réelles
-  email: "contact@levzahav.fr",
-  phone: "+33 1 23 45 67 89",
-  phoneDisplay: "01 23 45 67 89",
-  address: "12 rue de la Solidarité, 75000 Paris, France",
+  email: "levzahav770@gmail.com",
+  phone: "+33 7 54 46 66 26",
+  phoneDisplay: "07 54 46 66 26",
+  address: "112 avenue de Paris, 94300 Vincennes, France",
 
   // Numéro WhatsApp au format international SANS le « + » ni espaces
-  // Exemple France : 33612345678  (REMPLACER)
-  whatsapp: "33612345678",
+  whatsapp: "33754466626",
   whatsappMessage:
     "Bonjour LEV ZAHAV, je vous contacte depuis votre site internet.",
 
-  // REMPLACER par le n° RNA / SIRET si vous souhaitez l'afficher
   legalName: "Association LEV ZAHAV (loi 1901)",
-  rna: "W000000000",
+  rna: "W942006058",
+  president: "Francine HALFON",
 };
 
 // -----------------------------------------------------------------------------
 // RÉSEAUX SOCIAUX (REMPLACER par vos liens — laissez "" pour masquer une icône)
 // -----------------------------------------------------------------------------
 export const socials = {
-  facebook: "https://facebook.com/",
-  instagram: "https://instagram.com/",
-  youtube: "https://youtube.com/",
+  facebook: "",
+  instagram: "https://instagram.com/levzahav",
+  youtube: "",
   linkedin: "",
   whatsapp: `https://wa.me/${site.whatsapp}`,
 };
@@ -64,10 +62,10 @@ export const socials = {
 //   Ce lien est utilisé par TOUS les boutons « Faire un don » du site.
 // -----------------------------------------------------------------------------
 export const donation = {
-  url: "https://www.helloasso.com/", // REMPLACER
+  url: "https://www.allodons.fr/levzahav",
   ribLabel: "Don par virement (RIB)",
-  iban: "FR76 0000 0000 0000 0000 0000 000", // REMPLACER
-  bic: "XXXXXXXX", // REMPLACER
+  iban: "FR76 3008 7338 5400 0213 1240 180",
+  bic: "CMCIFRPP",
   taxNote:
     "Votre don ouvre droit à une réduction d’impôt de 66 % (ou 75 % dans le cadre du dispositif Coluche, dans la limite légale). Un reçu fiscal vous est envoyé automatiquement.",
 };
@@ -94,8 +92,7 @@ export const hero = {
     "Chaque mois, La Banque du Cœur accompagne des familles en difficulté grâce à des distributions alimentaires régulières.",
   primaryCta: { label: "Faire un don", href: "/faire-un-don" },
   secondaryCta: { label: "Découvrir nos actions", href: "/nos-actions" },
-  // REMPLACER : image de fond du hero -> /public/images/hero.jpg
-  image: "/images/hero.jpg",
+  image: "/images/distribution-chavouot.jpg",
 };
 
 // -----------------------------------------------------------------------------
@@ -122,10 +119,9 @@ export const mission = {
   points: [
     "Une aide alimentaire régulière et fiable",
     "Un accompagnement humain, sans jugement",
-    "Une totale transparence sur l’usage des dons",
+    "100% bénévole — sans salariés ni stock",
   ],
-  // REMPLACER : /public/images/mission.jpg
-  image: "/images/mission.jpg",
+  image: "/images/groupe-distribution.jpg",
 };
 
 // -----------------------------------------------------------------------------
@@ -162,13 +158,14 @@ export const howItWorks = {
 // FRISE CHRONOLOGIQUE « 10 ans de cœur »
 // -----------------------------------------------------------------------------
 export const timeline = [
-  { year: "2015", title: "La première distribution", text: "Quelques bénévoles, une poignée de colis et beaucoup de cœur : LEV ZAHAV voit le jour." },
+  { year: "2015", title: "La première distribution", text: "Quelques bénévoles, une poignée de colis et beaucoup de cœur : LEV ZAHAV voit le jour à Vincennes." },
   { year: "2017", title: "Un rythme mensuel", text: "Les distributions deviennent régulières : une chaque mois, sans exception." },
-  { year: "2019", title: "100 familles accompagnées", text: "Le réseau de bénévoles s’étoffe et l’impact grandit dans le quartier." },
-  { year: "2020", title: "Présents pendant la crise", text: "Face à la pandémie, l’association renforce ses distributions pour les plus isolés." },
-  { year: "2022", title: "De nouveaux partenaires", text: "Commerces, entreprises et fondations rejoignent l’aventure." },
-  { year: "2024", title: "Des locaux dédiés", text: "Un espace pour préparer et stocker les colis dans de meilleures conditions." },
-  { year: "2025", title: "10 ans d’engagement", text: "Une décennie de solidarité, des centaines de familles soutenues, et toujours le même cœur." },
+  { year: "2018", title: "Les colis des fêtes", text: "L'association accompagne les familles pour les grands rendez-vous de l'année : Pessah, Chavouot, Tichri, Hanouka, Pourim." },
+  { year: "2019", title: "Plus de 100 familles accompagnées", text: "Le réseau de bénévoles s'étoffe et l'impact grandit dans le quartier." },
+  { year: "2020", title: "Présents pendant la crise", text: "Face à la pandémie, l'association renforce ses distributions pour les plus isolés." },
+  { year: "2022", title: "De nouveaux partenaires", text: "Synagogue Beth Chalom, Bnei Miriam, commerces et fondations rejoignent l'aventure." },
+  { year: "2023", title: "Un soutien indéfectible", text: "L'association poursuit son action portée par la confiance de toute une communauté, et par la mémoire de ceux qui l'ont accompagnée." },
+  { year: "2025", title: "10 ans d'engagement", text: "Une décennie de solidarité, des centaines de familles soutenues, et toujours le même cœur." },
 ];
 
 // -----------------------------------------------------------------------------
@@ -207,21 +204,21 @@ export const donationImpact = {
 export const testimonials = [
   {
     quote:
-      "Chaque mois, le colis de LEV ZAHAV nous enlève un poids immense. Mais ce que je retiens, c’est le sourire des bénévoles. On se sent humain.",
-    author: "Une maman accompagnée",
-    role: "Famille aidée",
+      "Quand j'ai contacté LEV ZAHAV, je me sentais honteuse et angoissée. La personne qui m'a contactée m'est apparue comme un miracle. Ils me donnent bien plus qu'ils ne l'imaginent : de la sécurité, de la sérénité, de la dignité — celle d'une mère qui peut enfin offrir à son petit garçon des repas et des instants de vie qu'il n'avait jamais eus. Vous m'avez rendue meilleure : meilleure femme, meilleure mère, en renforçant ma foi et mon amour en la vie et en l'autre.",
+    author: "Famille D.",
+    role: "Famille accompagnée",
   },
   {
     quote:
-      "Donner quelques heures par mois et voir la reconnaissance dans le regard des familles… c’est ça, le vrai sens du mot solidarité.",
-    author: "Bénévole depuis 4 ans",
+      "Ça fait plusieurs années que je suis présente à la préparation des colis. Merci de pouvoir faire cette si belle mitzva. J'en ressors à chaque fois le cœur léger — merci à LEV ZAHAV d'être là pour toutes ces personnes dans l'attente de colis.",
+    author: "Corine Boutboul",
     role: "Bénévole",
   },
   {
     quote:
-      "Grâce à cette aide, j’ai pu tenir le temps de retrouver un emploi. Aujourd’hui, je reviens — mais comme bénévole.",
-    author: "Une personne accompagnée",
-    role: "Ancien bénéficiaire",
+      "L'Association a été et est toujours pour moi et mes enfants un soutien incommensurable depuis le décès de mon mari. LEV ZAHAV nous a permis d'alléger notre peine et nous permet encore de vivre dignement. Mes enfants et moi-même vous sommes reconnaissants à vie pour tous vos efforts et votre aide physique et morale.",
+    author: "Famille K.",
+    role: "Famille accompagnée",
   },
 ];
 
@@ -274,12 +271,11 @@ export const behindScenes = {
   eyebrow: "Dans les coulisses",
   title: "La préparation des colis",
   text: "Avant chaque distribution, nos bénévoles trient, pèsent et assemblent des centaines de colis. Un travail minutieux, fait avec rigueur et beaucoup de bonne humeur.",
-  // REMPLACER : images -> /public/images/coulisses/1.jpg ...
   images: [
-    "/images/coulisses/1.jpg",
-    "/images/coulisses/2.jpg",
-    "/images/coulisses/3.jpg",
-    "/images/coulisses/4.jpg",
+    "/images/galerie/2018.jpg",
+    "/images/galerie/2021.jpg",
+    "/images/galerie/2023.jpg",
+    "/images/galerie/2025.jpg",
   ],
 };
 
@@ -288,9 +284,9 @@ export const behindScenes = {
 //   logo : /public/images/partenaires/nom.png  (laissez "" pour afficher le nom)
 // -----------------------------------------------------------------------------
 export const partners = [
-  { name: "Partenaire 1", logo: "", url: "" },
-  { name: "Partenaire 2", logo: "", url: "" },
-  { name: "Partenaire 3", logo: "", url: "" },
+  { name: "Synagogue Beth Chalom", logo: "", url: "" },
+  { name: "Bnei Miriam", logo: "", url: "" },
+  { name: "Grand Rabbinat de France", logo: "", url: "" },
   { name: "Partenaire 4", logo: "", url: "" },
   { name: "Partenaire 5", logo: "", url: "" },
   { name: "Partenaire 6", logo: "", url: "" },
@@ -333,12 +329,12 @@ export const story = {
   eyebrow: "Notre histoire",
   title: "10 ans de cœur",
   intro:
-    "Tout a commencé par un geste simple : partager. Une décennie plus tard, LEV ZAHAV est devenue une véritable Banque du Cœur, portée par une communauté unie autour d’une même valeur — la dignité de chacun.",
+    "Tout a commencé par un geste simple : partager. Une décennie plus tard, LEV ZAHAV est devenue une véritable Banque du Cœur, portée par une communauté unie autour d'une même valeur — la dignité de chacun.",
   paragraphs: [
-    "En 2015, quelques amis décident de préparer des colis pour des familles du quartier. Le bouche-à-oreille fait le reste : très vite, les bénévoles affluent et les besoins se révèlent immenses.",
-    "Au fil des années, l’association se structure, noue des partenariats et professionnalise sa logistique, sans jamais perdre son âme : l’humain d’abord.",
-    "Aujourd’hui, LEV ZAHAV distribue chaque mois des centaines de colis. Mais derrière les chiffres, il y a surtout des rencontres, des sourires retrouvés et une certitude : ensemble, nous sommes la vie.",
+    "En 2015, à Vincennes, quelques amis décident de préparer des colis pour des familles en difficulté. Le bouche-à-oreille fait le reste : très vite, les bénévoles affluent et les besoins se révèlent immenses.",
+    "L'aventure s'est construite avec le soutien indéfectible de partenaires de la première heure — la synagogue Beth Chalom, son regretté Président Richard Chetboun zal, dont le « oui permanent pour tout » a donné à l'association la confiance de ne jamais baisser les bras, et le Rav Mordéchaï Choche zal, dont la mémoire continue d'inspirer chaque distribution.",
+    "Au fil des années, LEV ZAHAV s'est structurée : 100% bénévole, sans salariés ni stock, l'association honore une promesse simple — que chaque famille en difficulté reçoive non seulement des colis, mais aussi de l'espoir. Aux distributions mensuelles s'ajoutent les colis des grandes fêtes (Pessah, Chavouot, Tichri, Hanouka, Pourim), pour que personne ne reste seul aux moments qui comptent.",
+    "Aujourd'hui, LEV ZAHAV bénéficie du soutien officiel du Grand Rabbin de France, Haïm Korsia, et de toute une communauté de donateurs et de bénévoles. Mais derrière les chiffres, il y a surtout des rencontres, des sourires retrouvés et une certitude — עם ישראל חי — ensemble, nous sommes la vie.",
   ],
-  // REMPLACER : /public/images/histoire.jpg
-  image: "/images/histoire.jpg",
+  image: "/images/cover-10-ans.jpg",
 };
