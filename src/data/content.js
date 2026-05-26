@@ -92,8 +92,7 @@ export const hero = {
     "Chaque mois, La Banque du Cœur accompagne des familles en difficulté grâce à des distributions alimentaires régulières.",
   primaryCta: { label: "Faire un don", href: "/faire-un-don" },
   secondaryCta: { label: "Découvrir nos actions", href: "/nos-actions" },
-  // REMPLACER : image de fond du hero -> /public/images/hero.jpg
-  image: "/images/hero.jpg",
+  image: "/images/distribution-chavouot.jpg",
 };
 
 // -----------------------------------------------------------------------------
@@ -122,8 +121,7 @@ export const mission = {
     "Un accompagnement humain, sans jugement",
     "100% bénévole — sans salariés ni stock",
   ],
-  // REMPLACER : /public/images/mission.jpg
-  image: "/images/mission.jpg",
+  image: "/images/groupe-distribution.jpg",
 };
 
 // -----------------------------------------------------------------------------
@@ -273,12 +271,11 @@ export const behindScenes = {
   eyebrow: "Dans les coulisses",
   title: "La préparation des colis",
   text: "Avant chaque distribution, nos bénévoles trient, pèsent et assemblent des centaines de colis. Un travail minutieux, fait avec rigueur et beaucoup de bonne humeur.",
-  // REMPLACER : images -> /public/images/coulisses/1.jpg ...
   images: [
-    "/images/coulisses/1.jpg",
-    "/images/coulisses/2.jpg",
-    "/images/coulisses/3.jpg",
-    "/images/coulisses/4.jpg",
+    "/images/galerie/2018.jpg",
+    "/images/galerie/2021.jpg",
+    "/images/galerie/2023.jpg",
+    "/images/galerie/2025.jpg",
   ],
 };
 
@@ -339,6 +336,5 @@ export const story = {
     "Au fil des années, LEV ZAHAV s'est structurée : 100% bénévole, sans salariés ni stock, l'association honore une promesse simple — que chaque famille en difficulté reçoive non seulement des colis, mais aussi de l'espoir. Aux distributions mensuelles s'ajoutent les colis des grandes fêtes (Pessah, Chavouot, Tichri, Hanouka, Pourim), pour que personne ne reste seul aux moments qui comptent.",
     "Aujourd'hui, LEV ZAHAV bénéficie du soutien officiel du Grand Rabbin de France, Haïm Korsia, et de toute une communauté de donateurs et de bénévoles. Mais derrière les chiffres, il y a surtout des rencontres, des sourires retrouvés et une certitude — עם ישראל חי — ensemble, nous sommes la vie.",
   ],
-  // REMPLACER : /public/images/histoire.jpg
-  image: "/images/histoire.jpg",
+  image: "/images/cover-10-ans.jpg",
 };
