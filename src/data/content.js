@@ -78,6 +78,7 @@ export const navLinks = [
   { label: "Notre histoire", href: "/notre-histoire" },
   { label: "Nos actions", href: "/nos-actions" },
   { label: "Galerie", href: "/galerie" },
+  { label: "Témoignages", href: "/temoignages" },
   { label: "Devenir bénévole", href: "/devenir-benevole" },
   { label: "Contact", href: "/contact" },
 ];
