@@ -28,7 +28,7 @@ export default function HomePage() {
       <Timeline />
       <DonationImpact />
       <BehindScenes />
-      <Testimonials />
+      <Testimonials limit={6} showSeeMore />
       <GalleryPreview />
       <Partners />
       <VolunteerSection />

@@ -201,23 +201,81 @@ export const donationImpact = {
 // -----------------------------------------------------------------------------
 // TÉMOIGNAGES (anonymisés — « Notre impact humain »)
 // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// TÉMOIGNAGES — extraits de l'album anniversaire « 10 ans de cœur »
+//
+//   • Familles accompagnées : noms réduits à une initiale (respect & dignité)
+//   • Bénévoles : noms complets (avec leur accord)
+// -----------------------------------------------------------------------------
 export const testimonials = [
   {
+    year: "2017",
     quote:
       "Quand j'ai contacté LEV ZAHAV, je me sentais honteuse et angoissée. La personne qui m'a contactée m'est apparue comme un miracle. Ils me donnent bien plus qu'ils ne l'imaginent : de la sécurité, de la sérénité, de la dignité — celle d'une mère qui peut enfin offrir à son petit garçon des repas et des instants de vie qu'il n'avait jamais eus. Vous m'avez rendue meilleure : meilleure femme, meilleure mère, en renforçant ma foi et mon amour en la vie et en l'autre.",
     author: "Famille D.",
     role: "Famille accompagnée",
   },
   {
+    year: "2018",
     quote:
       "Ça fait plusieurs années que je suis présente à la préparation des colis. Merci de pouvoir faire cette si belle mitzva. J'en ressors à chaque fois le cœur léger — merci à LEV ZAHAV d'être là pour toutes ces personnes dans l'attente de colis.",
     author: "Corine Boutboul",
     role: "Bénévole",
   },
   {
+    year: "2022",
     quote:
       "L'Association a été et est toujours pour moi et mes enfants un soutien incommensurable depuis le décès de mon mari. LEV ZAHAV nous a permis d'alléger notre peine et nous permet encore de vivre dignement. Mes enfants et moi-même vous sommes reconnaissants à vie pour tous vos efforts et votre aide physique et morale.",
     author: "Famille K.",
+    role: "Famille accompagnée",
+  },
+  {
+    year: "2015",
+    quote:
+      "Ma famille et moi-même tenons à remercier sincèrement votre association pour votre engagement et votre soutien, ainsi que tous les donateurs. Grâce à votre travail et à votre générosité, vous apportez une réelle aide et un soulagement aux familles à chaque événement. Merci pour tous et à tous.",
+    author: "Famille S.",
+    role: "Famille accompagnée",
+  },
+  {
+    year: "2019",
+    quote:
+      "Mon épouse, les enfants et moi-même tenions à vous adresser nos sincères remerciements pour tout le travail remarquable que vous accomplissez à travers la distribution des colis alimentaires. Votre engagement, votre générosité et votre discrétion apportent une aide concrète et digne à de nombreuses familles. Agir ainsi, dans un esprit de solidarité et de responsabilité mutuelle, est une très belle expression des valeurs qui nous sont chères.",
+    author: "Famille K.",
+    role: "Famille accompagnée",
+  },
+  {
+    year: "2020",
+    quote:
+      "Prendre en photo nos bénévoles met en lumière leur engagement et montre qu'il en ressort uniquement du 'Hessed, de la bonté et de nombreuses mitzvot accomplies pour le bien des autres.",
+    author: "Gilles Souffan",
+    role: "Bénévole",
+  },
+  {
+    year: "2021",
+    quote:
+      "Merci Sylvain pour ton engagement et toute l'énergie que tu donnes sans compter à l'association. Ton implication et ton cœur font une vraie différence pour nous tous. C'est un réel plaisir de faire partie de cette aventure.",
+    author: "Nathan Attal",
+    role: "Bénévole",
+  },
+  {
+    year: "2023",
+    quote:
+      "À chaque fête, LEV ZAHAV nous rappelle que la solidarité et la bonté sont des valeurs vivantes. Les colis que vous nous offrez ne sont pas seulement une aide matérielle, ils apportent de la joie, du réconfort et la sensation profonde d'être entourés et soutenus. Grâce à vous, les fêtes prennent un sens plus lumineux pour notre famille.",
+    author: "Famille L.",
+    role: "Famille accompagnée",
+  },
+  {
+    year: "2024",
+    quote:
+      "Je souhaitais remercier l'association LEV ZAHAV pour son aide précieuse et généreuse. Des produits de qualité nous sont donnés et cela nous procure un immense plaisir. Encore merci.",
+    author: "Famille L.",
+    role: "Famille accompagnée",
+  },
+  {
+    year: "2025",
+    quote:
+      "LEV ZAHAV… ce n'est pas juste une association, c'est des colis alimentaires qui soulagent notre quotidien, c'est aussi de délicates attentions à chaque fête, ou encore le sourire de nos enfants en recevant leurs cadeaux de Hanouka. De tout cœur, un grand merci à LEV ZAHAV.",
+    author: "Famille L.",
     role: "Famille accompagnée",
   },
 ];
