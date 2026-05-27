@@ -1,25 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import { HandHeart, Check } from "lucide-react";
+import { HandHeart, Check, AlertCircle, Loader2 } from "lucide-react";
 import { volunteerSteps } from "@/data/content";
 
-/**
- * Formulaire pour devenir bénévole.
- *
- * ⚠️ Démo : aucune donnée n'est envoyée. Branchez votre service
- * (Formspree, Tally, route API Next.js...) dans handleSubmit.
- */
-export default function VolunteerForm() {
-  const [sent, setSent] = useState(false);
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_VOLUNTEER_ID;
 
-  function handleSubmit(e) {
+export default function VolunteerForm() {
+  const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    // 👉 REMPLACER par l'envoi réel.
-    setSent(true);
+    setErrorMsg("");
+
+    if (!FORMSPREE_ID) {
+      setErrorMsg(
+        "Le formulaire n'est pas encore configuré. Écrivez-nous directement à levzahav770@gmail.com."
+      );
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const formData = new FormData(e.target);
+      // Concatène les missions cochées en une seule chaîne (multivalues)
+      const missions = formData.getAll("missions").join(", ");
+      formData.delete("missions");
+      if (missions) formData.append("missions", missions);
+
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.errors?.[0]?.message || "Envoi impossible");
+      }
+      setStatus("sent");
+      e.target.reset();
+    } catch (err) {
+      setErrorMsg(err.message);
+      setStatus("error");
+    }
   }
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div
         className="flex flex-col items-center gap-4 rounded-3xl border border-gold/40 bg-gold/10 p-10 text-center"
@@ -28,10 +56,8 @@ export default function VolunteerForm() {
         <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink">
           <Check className="h-7 w-7" aria-hidden="true" />
         </span>
-        <h3 className="font-serif text-2xl text-ink">Bienvenue dans l’aventure !</h3>
-        <p className="text-ink-soft">
-          Merci pour votre engagement. Nous vous recontactons très vite.
-        </p>
+        <h3 className="font-serif text-2xl text-ink">Bienvenue dans l'aventure !</h3>
+        <p className="text-ink-soft">Merci pour votre engagement. Nous vous recontactons très vite.</p>
       </div>
     );
   }
@@ -58,9 +84,7 @@ export default function VolunteerForm() {
 
       <Field id="v-availability" label="Vos disponibilités">
         <select id="v-availability" name="availability" className={inputClass} defaultValue="">
-          <option value="" disabled>
-            Quand êtes-vous disponible ?
-          </option>
+          <option value="" disabled>Quand êtes-vous disponible ?</option>
           <option>En semaine</option>
           <option>Le week-end</option>
           <option>Ponctuellement</option>
@@ -69,9 +93,7 @@ export default function VolunteerForm() {
       </Field>
 
       <fieldset className="flex flex-col gap-3">
-        <legend className="text-sm font-medium text-ink">
-          Missions qui vous intéressent
-        </legend>
+        <legend className="text-sm font-medium text-ink">Missions qui vous intéressent</legend>
         <div className="grid gap-2 sm:grid-cols-2">
           {volunteerSteps.missions.map((m) => (
             <label
@@ -94,14 +116,33 @@ export default function VolunteerForm() {
         <textarea id="v-message" name="message" rows={4} className={`${inputClass} resize-y`} />
       </Field>
 
+      {/* Honeypot anti-spam */}
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
       <label className="flex items-start gap-3 text-sm text-ink-soft">
         <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-sand-dark text-gold focus:ring-gold" />
-        <span>J’accepte d’être recontacté(e) par l’association. *</span>
+        <span>J'accepte d'être recontacté(e) par l'association. *</span>
       </label>
 
-      <button type="submit" className="btn-bordeaux self-start">
-        <HandHeart className="h-4 w-4" aria-hidden="true" />
-        Je deviens bénévole
+      {status === "error" && (
+        <div role="alert" className="flex items-start gap-2 rounded-xl bg-bordeaux/10 px-4 py-3 text-sm text-bordeaux">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{errorMsg}</span>
+        </div>
+      )}
+
+      <button type="submit" disabled={status === "sending"} className="btn-bordeaux self-start disabled:opacity-60">
+        {status === "sending" ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Envoi en cours…
+          </>
+        ) : (
+          <>
+            <HandHeart className="h-4 w-4" aria-hidden="true" />
+            Je deviens bénévole
+          </>
+        )}
       </button>
     </form>
   );
