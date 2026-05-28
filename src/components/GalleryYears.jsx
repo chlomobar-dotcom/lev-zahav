@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Images, PlayCircle, ExternalLink, Clock } from "lucide-react";
+import { Images, PlayCircle, ExternalLink, Clock, Expand } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmartImage from "./SmartImage";
+import GalleryLightbox from "./GalleryLightbox";
 import { galleryYears } from "@/data/content";
 
 export default function GalleryYears() {
   const [active, setActive] = useState("all");
+  const [openAlbum, setOpenAlbum] = useState(null);
 
   const years = galleryYears.map((y) => y.year);
   const filtered =
@@ -53,18 +55,36 @@ export default function GalleryYears() {
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-sand bg-cream shadow-soft transition-shadow duration-300 hover:shadow-card"
             >
-              <div className="relative">
+              <button
+                type="button"
+                onClick={() =>
+                  setOpenAlbum({
+                    year: item.year,
+                    cover: item.cover,
+                    summary: item.summary,
+                    photosUrl: item.photos || "",
+                  })
+                }
+                aria-label={`Ouvrir l'album ${item.year} en plein écran`}
+                className="group/img relative block w-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              >
                 <SmartImage
                   src={item.cover}
                   alt={`LEV ZAHAV en ${item.year}`}
                   label={`Couverture ${item.year}`}
                   className="aspect-[4/3]"
-                  imgClassName="transition-transform duration-500 group-hover:scale-105"
+                  imgClassName="transition-transform duration-500 group-hover/img:scale-105"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-ink/85 px-3 py-1 font-serif text-sm font-semibold text-cream backdrop-blur">
                   {item.year}
                 </span>
-              </div>
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/0 transition group-hover/img:bg-ink/30">
+                  <span className="flex items-center gap-2 rounded-full bg-gold/95 px-4 py-2 text-sm font-semibold text-ink opacity-0 shadow-card transition group-hover/img:opacity-100">
+                    <Expand className="h-4 w-4" aria-hidden="true" />
+                    Voir l'album
+                  </span>
+                </span>
+              </button>
 
               <div className="flex flex-1 flex-col gap-4 p-6">
                 <p className="flex-1 text-sm leading-relaxed text-ink-soft">
@@ -107,6 +127,12 @@ export default function GalleryYears() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <AnimatePresence>
+        {openAlbum && (
+          <GalleryLightbox album={openAlbum} onClose={() => setOpenAlbum(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

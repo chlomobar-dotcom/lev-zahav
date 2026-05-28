@@ -3,6 +3,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SmartImage from "@/components/SmartImage";
 import Timeline from "@/components/Timeline";
 import Stats from "@/components/Stats";
+import Tributes from "@/components/Tributes";
 import CTADonation from "@/components/CTADonation";
 import { story } from "@/data/content";
 
@@ -43,6 +44,7 @@ export default function HistoirePage() {
 
       <Stats />
       <Timeline />
+      <Tributes />
       <CTADonation />
     </>
   );
