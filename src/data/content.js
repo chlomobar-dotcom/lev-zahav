@@ -397,3 +397,46 @@ export const story = {
   ],
   image: "/images/cover-10-ans.jpg",
 };
+
+// -----------------------------------------------------------------------------
+// HOMMAGES — figures fondatrices et soutiens qui nous ont quittés
+// -----------------------------------------------------------------------------
+export const tributes = {
+  eyebrow: "Avec gratitude",
+  title: "Hommage à celles et ceux qui nous ont portés",
+  intro:
+    "LEV ZAHAV n'aurait pas existé sans le soutien indéfectible de figures qui croyaient en l'aide à l'autre comme en une évidence. Leur mémoire vit dans chaque colis préparé.",
+  people: [
+    {
+      name: "Richard Chetboun",
+      hebrewMemorial: "ז\"ל",
+      title: "Président de la communauté Beth Chalom",
+      text: "Soutien indéfectible des premiers jours. Son « oui permanent pour tout » a donné à l'association la confiance de ne jamais baisser les bras. Parti trop tôt, il reste l'âme silencieuse de chaque distribution.",
+    },
+    {
+      name: "Rav Mordéchaï ben Yechoua Choche",
+      hebrewMemorial: "ז\"ל",
+      title: "Rabbin, guide spirituel",
+      text: "Son enseignement et sa bienveillance continuent d'inspirer notre engagement. Une distribution est dédiée à sa mémoire chaque année.",
+    },
+  ],
+  closing: "Que leur mémoire soit une bénédiction · תהי נשמתם צרורה בצרור החיים",
+};
+
+// -----------------------------------------------------------------------------
+// PRESSE & MÉDIAS — articles, vidéos et interventions parlant de LEV ZAHAV
+//
+//   Pour ajouter un article :
+//     {
+//       title:   "Titre de l'article",
+//       source:  "Nom du média",         // Ex: Le Figaro, Actualité Juive…
+//       date:    "2025-03-12",            // Format ISO (AAAA-MM-JJ)
+//       url:     "https://...",           // Lien direct vers l'article
+//       excerpt: "Court extrait ou pitch en 1-2 lignes",
+//       image:   "/images/presse/...jpg", // Optionnel : visuel d'aperçu
+//       type:    "article" | "video" | "radio" | "tv",
+//     }
+// -----------------------------------------------------------------------------
+export const pressItems = [
+  // Aucun article pour le moment — ajoutez-en ici en suivant le modèle commenté ci-dessus.
+];

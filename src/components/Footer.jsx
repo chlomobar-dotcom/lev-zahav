@@ -88,6 +88,14 @@ export default function Footer() {
                 Faire un don
               </Link>
             </li>
+            <li>
+              <Link
+                href="/presse"
+                className="text-cream/70 transition-colors hover:text-gold-light"
+              >
+                Presse & médias
+              </Link>
+            </li>
           </ul>
         </nav>
 
