@@ -71,6 +71,63 @@ export const donation = {
 };
 
 // -----------------------------------------------------------------------------
+// KAPPAROT EN LIGNE (page saisonnière — avant Yom Kippour)
+//   Prix unitaire = 18 € (Haï = « vivant » en hébreu, valeur symbolique = 18)
+//   👉 Renseignez `url` avec un lien de paiement dédié Kapparot si vous en
+//      créez un (campagne AlloDons/HelloAsso). Sinon, le bouton bascule sur
+//      `donation.url` (lien de don général) — ça marche quand même.
+// -----------------------------------------------------------------------------
+export const kapparot = {
+  // Mettre à false pour retirer le bouton Kapparot du menu (hors saison).
+  enabled: true,
+
+  eyebrow: "Mitsva de la Tsedaka",
+  title: "Kapparot en ligne",
+  subtitle:
+    "Accomplissez la mitsva des Kapparot avant Yom Kippour. Chaque tranche de 18 € (Haï — « vivant ») est intégralement reversée à des familles dans le besoin.",
+
+  pricePerUnit: 18, // en euros
+  maxPeople: 20,
+
+  // 👉 REMPLACER par un lien de paiement dédié si vous en avez un.
+  //    Laissez "" pour utiliser `donation.url` en secours.
+  url: "",
+
+  deadline:
+    "Il est d’usage d’accomplir les Kapparot avant le coucher du soleil de Yom Kippour.",
+
+  intro: [
+    "Par cette coutume respectée dans toutes les communautés, nous demandons à D.ieu de racheter nos fautes et d’inscrire nos noms dans le livre de la vie.",
+    "En participant, votre don de 18 € par personne finance des colis alimentaires distribués par LEV ZAHAV à des familles dans le besoin. Tsedaka et Kapparot réunies en un seul geste.",
+  ],
+
+  prayer: {
+    title: "Prière à réciter",
+    instruction:
+      "À réciter 3 fois, en tenant la somme destinée à la tsedaka au-dessus de la tête.",
+
+    // 1re partie — Psaumes 107:10-16
+    part1: {
+      transliteration:
+        "Bené adam, yoshvé ‘hoshekh vetsalmavet, assiré ‘oni ouvarzel. Yotsiém mé‘hoshekh vetsalmavet, oumossrotéhem yenatek. Evilim midérekh pish‘am, oumé‘avonotéhem yit‘anou. Kol okhel teta‘ev nafsham, vayagui‘ou ‘ad sha‘aré mavet. Vayiz‘aqou el A-donaï batsar lahem, mimétsouqotéhem yoshi‘em. Yishla’h devaro veyirpaém, vimalèt mishe’hitotam. Yodou l’A-donaï ‘hasdo, veniflotav livné adam.",
+      french:
+        "« Assis dans les ténèbres et l’ombre de la mort, prisonniers de la misère et des fers… Ils crient vers l’Éternel dans leur détresse, et Il les délivre de leurs angoisses. Il envoie Sa parole et les guérit. Qu’ils louent l’Éternel pour Sa bonté, et pour Ses merveilles envers les enfants des hommes. » (Psaumes 107)",
+    },
+
+    // 2e partie — pour l'argent de la kappara
+    part2: {
+      transliteration:
+        "Zé ‘halifati, zé temourati, zé kapparati. Zé hakesef yélékh litsdaka, va’ani élekh ve’ékanès le’haïm tovim aroukim ouleshalom.",
+      french:
+        "« Ceci est mon substitut, ceci est mon échange, ceci est mon expiation. Cet argent ira à la tsedaka, et moi j’irai vers une vie bonne, longue et paisible. »",
+    },
+  },
+
+  afterSubmitNote:
+    "Merci d’indiquer « Kapparot — [prénom des personnes] » dans le champ « Message » de votre don, afin que nous puissions vous adresser un reçu fiscal nominatif.",
+};
+
+// -----------------------------------------------------------------------------
 // NAVIGATION (ordre du menu)
 // -----------------------------------------------------------------------------
 export const navLinks = [

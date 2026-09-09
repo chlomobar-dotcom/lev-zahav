@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Heart, Lock } from "lucide-react";
+import { Menu, X, Heart, Lock, Sparkles } from "lucide-react";
 import Logo from "./Logo";
-import { navLinks } from "@/data/content";
+import { navLinks, kapparot } from "@/data/content";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -74,6 +74,15 @@ export default function Header() {
             <Lock className="h-3.5 w-3.5" aria-hidden="true" />
             <span className="hidden 2xl:inline">Espace administrateur</span>
           </Link>
+          {kapparot?.enabled && (
+            <Link
+              href="/kapparot"
+              className="hidden items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-3.5 py-1.5 text-xs font-semibold text-gold-dark transition-colors hover:bg-gold hover:text-ink md:inline-flex"
+            >
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              Kapparot
+            </Link>
+          )}
           <Link href="/faire-un-don" className="btn-gold hidden whitespace-nowrap sm:inline-flex">
             <Heart className="h-4 w-4" aria-hidden="true" />
             Faire un don
@@ -122,7 +131,18 @@ export default function Header() {
               </li>
             );
           })}
-          <li className="mt-2">
+          {kapparot?.enabled && (
+            <li className="mt-2">
+              <Link
+                href="/kapparot"
+                className="flex items-center justify-center gap-2 rounded-xl border border-gold/50 bg-gold/10 px-4 py-3 text-base font-semibold text-gold-dark hover:bg-gold hover:text-ink"
+              >
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                Kapparot en ligne
+              </Link>
+            </li>
+          )}
+          <li className={kapparot?.enabled ? "" : "mt-2"}>
             <Link href="/faire-un-don" className="btn-gold w-full">
               <Heart className="h-4 w-4" aria-hidden="true" />
               Faire un don
