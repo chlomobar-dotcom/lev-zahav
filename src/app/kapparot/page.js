@@ -2,6 +2,7 @@ import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeading from "@/components/SectionHeading";
 import KapparotForm from "@/components/KapparotForm";
+import KapparotDecor from "@/components/KapparotDecor";
 import CTADonation from "@/components/CTADonation";
 import FAQ from "@/components/FAQ";
 import { Sparkles, ScrollText, ReceiptText, Clock } from "lucide-react";
@@ -22,8 +23,15 @@ export default function KapparotPage() {
         subtitle={kapparot.subtitle}
       />
 
+      {/* Décoration : coq stylisé + pièces + étoile de David + חי */}
+      <section className="container-page pt-10 sm:pt-14">
+        <AnimatedSection>
+          <KapparotDecor />
+        </AnimatedSection>
+      </section>
+
       {/* Introduction */}
-      <section className="container-page py-16 sm:py-20">
+      <section className="container-page pb-16 pt-10 sm:pb-20 sm:pt-14">
         <AnimatedSection className="flex flex-col gap-5 text-lg leading-relaxed text-ink-soft">
           {kapparot.intro.map((p, i) => (
             <p key={i}>{p}</p>

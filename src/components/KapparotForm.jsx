@@ -1,8 +1,19 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Plus, Minus, Heart, Check, User, ExternalLink } from "lucide-react";
+import {
+  Plus,
+  Minus,
+  Heart,
+  Check,
+  User,
+  ExternalLink,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
 import { kapparot, donation } from "@/data/content";
+
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_KAPPAROT_ID;
 
 /**
  * Formulaire Kapparot en ligne.
@@ -25,7 +36,8 @@ export default function KapparotForm() {
   });
   const [wantsReceipt, setWantsReceipt] = useState(true);
   const [receiptType, setReceiptType] = useState("particulier");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [errorMsg, setErrorMsg] = useState("");
 
   const total = useMemo(() => nbPeople * kapparot.pricePerUnit, [nbPeople]);
 
@@ -47,15 +59,65 @@ export default function KapparotForm() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setErrorMsg("");
+
+    const names = people.map((p) => p.prenom.trim()).filter(Boolean);
+    const dedicataires = people
+      .map(
+        (p, i) =>
+          `${i + 1}. ${p.prenom.trim() || "(sans prénom)"} — ${
+            p.genre === "F" ? "Femme" : "Homme"
+          }`
+      )
+      .join("\n");
+
+    // Si Formspree n'est pas configuré, on saute l'envoi mail et on passe direct au récap.
+    if (!FORMSPREE_ID) {
+      setStatus("sent");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const payload = new FormData();
+      payload.set("_subject", `Kapparot en ligne — ${total} € (${nbPeople} pers.)`);
+      payload.set("nb_personnes", String(nbPeople));
+      payload.set("montant_total", `${total} €`);
+      payload.set("dedicataires", dedicataires);
+      payload.set("prenom_donateur", contact.prenom);
+      payload.set("nom_donateur", contact.nom);
+      payload.set("email", contact.email);
+      payload.set("telephone", contact.tel);
+      payload.set("recu_fiscal", wantsReceipt ? "Oui" : "Non");
+      if (wantsReceipt) {
+        payload.set(
+          "type_recu",
+          receiptType === "societe" ? "Société" : "Particulier"
+        );
+      }
+
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.errors?.[0]?.message || "Envoi impossible");
+      }
+      setStatus("sent");
+    } catch (err) {
+      setErrorMsg(err.message);
+      setStatus("error");
+    }
   }
 
   const paymentUrl = kapparot.url || donation.url;
 
   // ---------- Écran de confirmation / redirection paiement ----------
-  if (submitted) {
+  if (status === "sent") {
     const names = people
       .map((p) => p.prenom.trim())
       .filter(Boolean)
@@ -117,7 +179,7 @@ export default function KapparotForm() {
           </a>
           <button
             type="button"
-            onClick={() => setSubmitted(false)}
+            onClick={() => setStatus("idle")}
             className="btn-outline"
           >
             Modifier ma demande
@@ -324,14 +386,51 @@ export default function KapparotForm() {
         </div>
       </div>
 
-      <button type="submit" className="btn-bordeaux self-center">
-        <Heart className="h-4 w-4" aria-hidden="true" />
-        Continuer vers le paiement ({total} €)
+      {/* Honeypot anti-spam */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
+      {status === "error" && (
+        <div
+          role="alert"
+          className="flex items-start gap-2 rounded-xl bg-bordeaux/10 px-4 py-3 text-sm text-bordeaux"
+        >
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>
+            Impossible d’envoyer votre demande ({errorMsg}). Réessayez, ou
+            écrivez-nous directement.
+          </span>
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="btn-bordeaux self-center disabled:opacity-60"
+      >
+        {status === "sending" ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+            Envoi en cours…
+          </>
+        ) : (
+          <>
+            <Heart className="h-4 w-4" aria-hidden="true" />
+            Continuer vers le paiement ({total} €)
+          </>
+        )}
       </button>
 
       <p className="text-center text-xs text-ink-soft/70">
-        En validant, vous serez redirigé(e) vers notre plateforme de paiement
-        sécurisée. Aucune donnée bancaire n’est stockée sur ce site.
+        En validant, vos informations nous sont envoyées, puis vous êtes
+        redirigé(e) vers notre plateforme de paiement sécurisée. Aucune donnée
+        bancaire n’est stockée sur ce site.
       </p>
     </form>
   );
